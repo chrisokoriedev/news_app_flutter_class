@@ -3,7 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 
 class HomePage extends StatelessWidget {
-  final TextEditingController controller = TextEditingController();
+  const HomePage({super.key});
+
 
   @override
   Widget build(BuildContext context) {

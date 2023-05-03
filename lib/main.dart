@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: kScaffoldColor,
         primarySwatch: Colors.blue,
       ),
-      home: checkBool ?  HomePage() : const GetStartedScreen(),
+      home: checkBool ?  const HomePage() : const GetStartedScreen(),
     );
   }
 }
