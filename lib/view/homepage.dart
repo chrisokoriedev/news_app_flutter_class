@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Icon(
+                   Icon(
                     Icons.pin_drop_rounded,
                     size: 20,
                     color: Color(0xfffd6a85),
