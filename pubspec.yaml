@@ -17,6 +17,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
   get:
   shared_preferences:
+  gap:
 
 flutter_native_splash:
   color: '#ffffff'
