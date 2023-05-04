@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:news_app_flutter_class/main.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:news_app_flutter_class/view/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -52,10 +53,9 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                   const Gap(10),
                   ElevatedButton(
-                      onPressed: () async {
-                        getStartedIsPressed=true;
-                        final pref =await SharedPreferences.getInstance();
-                        pref.setBool('getStartedChecker', getStartedIsPressed);
+                      onPressed: ()  {
+
+                        boxHive.put('done', true);
                         Get.to( HomePage());
 
                       },

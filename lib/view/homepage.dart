@@ -32,7 +32,6 @@ class HomePage extends StatelessWidget {
               ),
               const Gap(30),
               TextField(
-                controller: controller,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(),
                     prefixIcon: const Icon(Icons.search),

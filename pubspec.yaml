@@ -18,7 +18,9 @@ dependencies:
   get:
   shared_preferences:
   gap:
-
+  hive:
+  path_provider:
+  bottom_navy_bar: ^6.0.0
 flutter_native_splash:
   color: '#ffffff'
   image: 'assets/icons/app_icon.png'

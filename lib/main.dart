@@ -1,34 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:news_app_flutter_class/view/getStarted.dart';
 import 'package:news_app_flutter_class/view/homepage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:news_app_flutter_class/view/maincontroll.dart';
+import 'package:path_provider/path_provider.dart' as path;
 
-void main() {
+var boxHive;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Directory directory = await path.getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
+  await Hive.openBox('myBox');
+  boxHive = Hive.box('myBox');
+
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool checkBool=false;
-
-  @override
-  void initState() {
-    super.initState();
-    check();
-  }
-
-  void check() async {
-    final pref = await SharedPreferences.getInstance();
-    checkBool = pref.getBool('getStartedChecker')!;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +33,9 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: kScaffoldColor,
         primarySwatch: Colors.blue,
       ),
-      home: checkBool ?  const HomePage() : const GetStartedScreen(),
+      home: boxHive.get('done') == true
+          ? const MainConrolScreen()
+          : const GetStartedScreen(),
     );
   }
 }
