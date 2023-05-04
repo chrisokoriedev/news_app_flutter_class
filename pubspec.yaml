@@ -19,8 +19,14 @@ dependencies:
   shared_preferences:
   gap:
   hive:
+  dio:
+  cached_network_image:
   path_provider:
   bottom_navy_bar: ^6.0.0
+  geolocator: ^8.0.1
+  geocode:
+  flutter_card_swiper: ^5.0.0
+
 flutter_native_splash:
   color: '#ffffff'
   image: 'assets/icons/app_icon.png'

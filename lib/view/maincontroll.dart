@@ -23,7 +23,6 @@ class _MainConrolScreenState extends State<MainConrolScreen> {
         return const SearchPage();
       case 2:
         return const SettingPage();
-
       default:
         return Container();
     }
@@ -33,26 +32,31 @@ class _MainConrolScreenState extends State<MainConrolScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _getPage(_currentIndex),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) => setState(() => _currentIndex = index),
-        items: [
-          BottomNavyBarItem(
-            icon: const Icon(Icons.home),
-            title: const Text('Home'),
-            activeColor: Colors.blue,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(Icons.search),
-            title: const Text('Search'),
-            activeColor: Colors.green,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(Icons.person),
-            title: const Text('Profile'),
-            activeColor: Colors.red,
-          ),
-        ],
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: BottomNavyBar(
+          containerHeight: 60,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          selectedIndex: _currentIndex,
+          onItemSelected: (index) => setState(() => _currentIndex = index),
+          items: [
+            BottomNavyBarItem(
+              icon: const Icon(Icons.home),
+              title: const Text('Home'),
+              activeColor: Colors.blue,
+            ),
+            BottomNavyBarItem(
+              icon: const Icon(Icons.search),
+              title: const Text('Search'),
+              activeColor: Colors.green,
+            ),
+            BottomNavyBarItem(
+              icon: const Icon(Icons.person),
+              title: const Text('Profile'),
+              activeColor: Colors.red,
+            ),
+          ],
+        ),
       ),
     );
   }

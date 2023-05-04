@@ -1,10 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:news_app_flutter_class/controller/recommendation_controller.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final RecommendationController controller =
+      Get.put(RecommendationController());
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +29,7 @@ class HomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                   Icon(
+                  Icon(
                     Icons.pin_drop_rounded,
                     size: 20,
                     color: Color(0xfffd6a85),
@@ -72,16 +83,43 @@ class HomePage extends StatelessWidget {
                         buildTab('Shopping'),
                       ],
                     ),
-                    Container(
-                      height: 500,
-                      child: TabBarView(children: [
-                        Text('Home'),
-                        Text('Home'),
-                        Text('Home'),
-                        Text('Home'),
-                        Text('Home'),
-                      ]),
-                    )
+                    controller.isLoading(true)
+                        ? Container()
+                        : Obx(() {
+                            return Container(
+                              height: 500,
+                              child: TabBarView(children: [
+                                Column(
+                                  children: [
+                                    Container(
+                                      height: 300,
+                                      child: CardSwiper(
+                                        cardsCount: controller.articles.length,
+                                        cardBuilder: (context, index) {
+                                          final article =
+                                              controller.articles[index];
+                                          return Container(
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    image:
+                                                        CachedNetworkImageProvider(
+                                                            article.urlToImage))),
+                                            child: const Text('1'),
+                                            color: Colors.blue,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text('Home'),
+                                Text('Home'),
+                                Text('Home'),
+                                Text('Home'),
+                              ]),
+                            );
+                          })
                   ],
                 ),
               ),
