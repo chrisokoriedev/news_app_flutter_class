@@ -56,7 +56,7 @@ class GetStartedScreen extends StatelessWidget {
                       onPressed: ()  {
 
                         boxHive.put('done', true);
-                        Get.to( HomePage());
+                        // Get.to( HomePage());
 
                       },
                       style: ButtonStyle(

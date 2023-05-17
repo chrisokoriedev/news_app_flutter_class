@@ -1,33 +1,34 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 
 import '../model/remmendationmodel.dart';
 
-class RecommendationApi {
+class NewService {
   final Dio _dio = Dio();
   final String apiKey = 'ec54dfe0089f42608e846db8f2655a7e';
   final String apiEndpoint =
-      'https://newsapi.org/v2/everything?apiKey=ec54dfe0089f42608e846db8f2655a7e&q=nigeria&pageSize=10';
+      'https://newsapi.org/v2/top-headlines?country=us&apiKey=ec54dfe0089f42608e846db8f2655a7e'
+          .trim();
 
-  Future getResult() async {
+  Future<NewModel> getHotNews() async {
     try {
-      final apiResult = await _dio.get(apiEndpoint);
-
-      if (apiResult.statusCode == 200) {
-        final dataDetail = apiResult.data;
-        RecommendationModel recommendationModel =
-            RecommendationModel.fromJson(dataDetail);
-        return recommendationModel.articles ;
-      } else if (apiResult.statusCode == 401) {
+      var apiConnect = await _dio.get(apiEndpoint);
+      if (apiConnect.statusCode == 200) {
+        var data = apiConnect.data;
+        var jsonString = json.encode(data); // Convert data to a JSON string
+        final newModel = newModelFromJson(jsonString); // Parse the JSON string
+        print(newModel!.articles);
+        return newModel;
       } else {
-        Get.snackbar('status', 'Something went wrong');
-        return null;
+        print('Request failed');
       }
     } catch (e) {
-      Get.snackbar('status', e.toString());
-      return null;
+      print(e);
     }
+    return NewModel(
+        status: '',
+        totalResults: null,
+        articles: []); // Return an empty NewModel if there's an error
   }
 }

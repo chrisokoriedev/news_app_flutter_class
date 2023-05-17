@@ -18,7 +18,7 @@ class _MainConrolScreenState extends State<MainConrolScreen> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const HomePage();
+        return  HomePage();
       case 1:
         return const SearchPage();
       case 2:
