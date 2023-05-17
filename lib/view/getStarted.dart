@@ -3,15 +3,12 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/main.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
-import 'package:news_app_flutter_class/view/homepage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    bool getStartedIsPressed=false;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -53,11 +50,9 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                   const Gap(10),
                   ElevatedButton(
-                      onPressed: ()  {
-
+                      onPressed: () {
                         boxHive.put('done', true);
                         // Get.to( HomePage());
-
                       },
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(

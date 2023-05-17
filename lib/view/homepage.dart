@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                                         children: [
                                           Text(
                                             timeago.format(
-                                                article?.publishedAt ??
+                                                article.publishedAt ??
                                                     DateTime.now()),
                                             style: const TextStyle(
                                               color: Colors.grey,
