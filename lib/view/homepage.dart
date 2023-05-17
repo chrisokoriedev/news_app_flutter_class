@@ -10,15 +10,14 @@ import '../controller/hot_news_controller.dart';
 
 class HomePage extends StatelessWidget {
   final HotNewsController controller = Get.put(HotNewsController());
+  final CardSwiperController cardSwiperController=CardSwiperController();
 
   HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hot News'),
-      ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -38,41 +37,46 @@ class HomePage extends StatelessWidget {
                     width: double.infinity,
                     height: 350,
                     child: CardSwiper(
+                      isLoop: false,
+                      controller: cardSwiperController,
                       cardsCount: controller.data.value.articles!.length,
                       cardBuilder: (context, index) {
                         Article article =
                             controller.data.value.articles![index];
                         return Container(
                             alignment: Alignment.bottomLeft,
-                            // decoration: BoxDecoration(
-                            //   borderRadius: BorderRadius.circular(20),
-                            //   image: DecorationImage(
-                            //       image: CachedNetworkImageProvider(
-                            //           article.urlToImage ?? ''),
-                            //       fit: BoxFit.cover),
-                            // ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                             child: Stack(
                               children: [
-                                Container(
-                                  child: CachedNetworkImage(
-                                    imageUrl: article.urlToImage ?? '',
-                                    imageBuilder: (context, imageProvider) =>
-                                        Container(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                            colorFilter: ColorFilter.mode(
-                                                Colors.red,
-                                                BlendMode.colorBurn)),
+                                CachedNetworkImage(
+                                  imageUrl: article.urlToImage ?? '',
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                    placeholder: (context, url) => Image.asset(
-                                        'assets/images/getStarted.jpg'),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                            'assets/images/getStarted.jpg'),
                                   ),
+                                  placeholder: (context, url) => Image.asset(
+                                    'assets/images/getStarted.jpg',
+                                    fit: BoxFit.cover,
+                                    width: 500,
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                    'assets/images/bg.jpeg',
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 300,
+                                  ),
+                                      ),
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
@@ -113,8 +117,8 @@ class HomePage extends StatelessWidget {
                                                 article?.publishedAt ??
                                                     DateTime.now()),
                                             style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
+                                              color: Colors.grey,
+                                              fontSize: 13,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),

@@ -59,7 +59,7 @@ flutter:
      - assets/
      - assets/icons/
      - assets/images/
-     - assets/images/loading.jpg
+     - assets/images/bg.jpeg
 
 
   # fonts:

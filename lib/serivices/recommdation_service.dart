@@ -8,7 +8,7 @@ class NewService {
   final Dio _dio = Dio();
   final String apiKey = 'ec54dfe0089f42608e846db8f2655a7e';
   final String apiEndpoint =
-      'https://newsapi.org/v2/top-headlines?country=ng&apiKey=ec54dfe0089f42608e846db8f2655a7e'
+      'https://newsapi.org/v2/top-headlines?country=us&apiKey=ec54dfe0089f42608e846db8f2655a7e'
           .trim();
 
   Future<NewModel> getHotNews() async {
