@@ -2,24 +2,26 @@
 // import 'package:get/get.dart';
 //
 // class LocationController extends GetxController {
-//   var _city = ''.obs;
-//   var _state = ''.obs;
+//   var city = 'Loading...'.obs;
 //
 //   @override
 //   void onInit() {
 //     super.onInit();
-//     _getCurrentLocation();
+//     getLocation();
 //   }
 //
-//   void _getCurrentLocation() async {
-//     final GeolocatorPlatform geolocator = GeolocatorPlatform.instance;
+//   void getLocation() async {
+//     Position position = await Geolocator.getCurrentPosition(
+//         desiredAccuracy: LocationAccuracy.high);
+//     List<Placemark> placemarks = await placemarkFromCoordinates(
+//       position.latitude,
+//       position.longitude,
+//     );
+//     Placemark placemark = placemarks[0];
 //
-//     final position = await geolocator.getCurrentPosition();
+//     String address = '${placemark.street}, ${placemark.locality}, ${placemark.administrativeArea} ${placemark.postalCode}, ${placemark.country}';
+//     print(address);
 //
-//     final placemarks = await geolocator.placemarkFromCoordinates(
-//         position.latitude, position.longitude);
-//
-//     _city = placemarks[0].locality;
-//     _state = placemarks[0].administrativeArea;
+//     city.value =
 //   }
 // }

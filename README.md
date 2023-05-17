@@ -4,8 +4,7 @@ News app functionality
 <br>
 -dio or http implementation
 <br>
--offline checker
-<br>
+
 -hive 
 <br>
 -bottom nav

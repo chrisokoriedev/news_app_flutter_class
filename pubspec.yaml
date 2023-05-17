@@ -20,6 +20,7 @@ dependencies:
   gap:
   hive:
   dio:
+  http:
   cached_network_image:
   path_provider:
   bottom_navy_bar: ^6.0.0
