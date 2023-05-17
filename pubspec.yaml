@@ -20,12 +20,11 @@ dependencies:
   gap:
   hive:
   dio:
-  http:
+  timeago:
+  smooth_page_indicator:
   cached_network_image:
   path_provider:
   bottom_navy_bar: ^6.0.0
-  geolocator: ^8.0.1
-  geocode:
   flutter_card_swiper: ^5.0.0
 
 flutter_native_splash:
@@ -60,6 +59,7 @@ flutter:
      - assets/
      - assets/icons/
      - assets/images/
+     - assets/images/loading.jpg
 
 
   # fonts:
