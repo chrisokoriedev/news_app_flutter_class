@@ -30,7 +30,7 @@ class NewService extends GetxController {
   }
 }
 
-class GetNewCategory {
+class GetNewCategory extends GetxController {
   final Dio _dio = Dio();
   final String apiKey = 'ec54dfe0089f42608e846db8f2655a7e';
 

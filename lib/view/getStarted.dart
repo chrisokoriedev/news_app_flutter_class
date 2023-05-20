@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/main.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
+import 'package:news_app_flutter_class/view/maincontroll.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class GetStartedScreen extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         boxHive.put('done', true);
-                        // Get.to( HomePage());
+                        Get.to( const MainConrolScreen());
                       },
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(
@@ -61,7 +62,7 @@ class GetStartedScreen extends StatelessWidget {
                           fixedSize: MaterialStateProperty.all(
                               Size(Get.mediaQuery.size.width * 0.7, 55)),
                           backgroundColor: MaterialStateProperty.all(kPrimary)),
-                      child: Text('Get Started')),
+                      child: const Text('Get Started')),
                 ],
               ),
             )

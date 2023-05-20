@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
 import 'package:news_app_flutter_class/serivices/recommdation_service.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
+import 'package:news_app_flutter_class/view/category_view.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -197,7 +198,10 @@ class HomePage extends StatelessWidget {
 
   InkWell buildInkWell(String title) {
     return InkWell(
-      onTap: () => GetNewCategory().getHotNews(title.trim()),
+      onTap: () {
+        GetNewCategory().getHotNews(title.trim());
+        Get.to(const CategoryView());
+      },
       borderRadius: BorderRadius.circular(8.sp),
       child: Container(
         width: 28.w,

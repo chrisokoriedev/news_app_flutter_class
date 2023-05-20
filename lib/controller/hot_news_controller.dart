@@ -27,4 +27,28 @@ class HotNewsController extends GetxController {
       isLoading.value = false;
     }
   }
+}class GetCategoryController extends GetxController {
+  var isLoading = true.obs;
+  var data = NewModel(status: '0', totalResults: 0, articles: []).obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    dataFetchFromServices();
+  }
+
+  void dataFetchFromServices() async {
+    try {
+      isLoading.value = true;
+      NewModel fetchedData = await GetNewCategory().getHotNews('');
+      if (fetchedData.articles!.isNotEmpty) {
+        data.value = fetchedData;
+      } else {
+        // Handle the case where no articles are available
+        data.value = NewModel(status: '0', totalResults: 0, articles: []);
+      }
+    } finally {
+      isLoading.value = false;
+    }
+  }
 }
