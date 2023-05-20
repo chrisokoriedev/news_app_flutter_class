@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 import '../controller/hot_news_controller.dart';
@@ -24,8 +25,12 @@ class HomePage extends StatelessWidget {
             children: [
               Obx(() {
                 if (controller.isLoading.value) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return Center(
+                    child: Shimmer(
+                      child: Container(
+                        color: Colors.grey,
+                      ),
+                    ),
                   );
                 } else if (controller.data.value.articles!.isEmpty) {
                   return const Center(
