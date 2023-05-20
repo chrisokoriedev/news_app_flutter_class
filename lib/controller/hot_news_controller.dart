@@ -3,6 +3,7 @@ import 'package:news_app_flutter_class/model/remmendationmodel.dart';
 
 import '../serivices/get_category_new.dart';
 import '../serivices/recommdation_service.dart';
+import '../view/category_view.dart';
 
 class HotNewsController extends GetxController {
   var isLoading = true.obs;
@@ -19,6 +20,8 @@ class HotNewsController extends GetxController {
       isLoading.value = true;
       NewModel fetchedData = await NewService().getHotNews();
       if (fetchedData.articles!.isNotEmpty) {
+        Get.to(const CategoryView());
+
         data.value = fetchedData;
       } else {
         // Handle the case where no articles are available
@@ -28,7 +31,9 @@ class HotNewsController extends GetxController {
       isLoading.value = false;
     }
   }
-}class GetCategoryController extends GetxController {
+}
+
+class GetCategoryController extends GetxController {
   var isLoading = true.obs;
   var data = NewModel(status: '0', totalResults: 0, articles: []).obs;
 
@@ -41,7 +46,9 @@ class HotNewsController extends GetxController {
   void dataFetchFromServices() async {
     try {
       isLoading.value = true;
-      NewModel fetchedData = await GetNewCategoryServices().getCategoryNewsApiS('');
+      NewModel fetchedData =
+          await GetNewCategoryServices().getCategoryNewsApiS('');
+
       if (fetchedData.articles!.isNotEmpty) {
         data.value = fetchedData;
       } else {

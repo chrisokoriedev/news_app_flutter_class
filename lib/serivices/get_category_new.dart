@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 import '../model/remmendationmodel.dart';
+
 class GetNewCategoryServices extends GetxController {
   final Dio _dio = Dio();
   final String apiKey = 'ec54dfe0089f42608e846db8f2655a7e';
@@ -17,8 +18,8 @@ class GetNewCategoryServices extends GetxController {
         var data = apiConnect.data;
         var jsonString = json.encode(data); // Convert data to a JSON string
         final newModel = newModelFromJson(jsonString); // Parse the JSON string
-        print(newModel!.articles);
-        return newModel;
+        print(apiConnect.statusCode);
+        return newModel!;
       } else {
         print('Request failed');
       }

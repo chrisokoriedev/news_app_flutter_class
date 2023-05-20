@@ -201,7 +201,6 @@ class HomePage extends StatelessWidget {
     return InkWell(
       onTap: () {
         GetNewCategoryServices().getCategoryNewsApiS(title.trim());
-        Get.to(const CategoryView());
       },
       borderRadius: BorderRadius.circular(8.sp),
       child: Container(
