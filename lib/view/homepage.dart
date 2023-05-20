@@ -32,7 +32,13 @@ class HomePage extends StatelessWidget {
                   return Center(
                     child: Shimmer(
                       child: Container(
-                        color: Colors.grey,
+                        width: double.infinity,
+                        height: 47.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(10.sp)),
+                        child: const Text('Loading'),
                       ),
                     ),
                   );
@@ -43,8 +49,10 @@ class HomePage extends StatelessWidget {
                 } else {
                   return SizedBox(
                     width: double.infinity,
-                    height: 350,
+                    height: 47.h,
                     child: CardSwiper(
+                      padding: EdgeInsets.zero,
+                      scale: 0.2,
                       isLoop: true,
                       controller: cardSwiperController,
                       cardsCount: controller.data.value.articles!.length,
