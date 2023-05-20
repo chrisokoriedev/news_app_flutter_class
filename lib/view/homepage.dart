@@ -10,14 +10,13 @@ import '../controller/hot_news_controller.dart';
 
 class HomePage extends StatelessWidget {
   final HotNewsController controller = Get.put(HotNewsController());
-  final CardSwiperController cardSwiperController=CardSwiperController();
+  final CardSwiperController cardSwiperController = CardSwiperController();
 
   HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -37,7 +36,7 @@ class HomePage extends StatelessWidget {
                     width: double.infinity,
                     height: 350,
                     child: CardSwiper(
-                      isLoop: false,
+                      isLoop: true,
                       controller: cardSwiperController,
                       cardsCount: controller.data.value.articles!.length,
                       cardBuilder: (context, index) {
@@ -62,21 +61,24 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  placeholder: (context, url) => Image.asset(
-                                    'assets/images/getStarted.jpg',
-                                    fit: BoxFit.cover,
-                                    width: 500,
+                                  placeholder: (context, url) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/bg.jpeg',
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                      height: double.maxFinite,
+                                    ),
                                   ),
                                   errorWidget: (context, url, error) =>
                                       ClipRRect(
-                                        borderRadius: BorderRadius.circular(20),
-                                        child: Image.asset(
-                                    'assets/images/bg.jpeg',
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    height: 300,
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/bg.jpeg',
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                    ),
                                   ),
-                                      ),
                                 ),
                                 Container(
                                   decoration: BoxDecoration(

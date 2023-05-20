@@ -21,6 +21,8 @@ dependencies:
   hive:
   dio:
   timeago:
+  sizer:
+  shimmer_animation:
   smooth_page_indicator:
   cached_network_image:
   path_provider:
