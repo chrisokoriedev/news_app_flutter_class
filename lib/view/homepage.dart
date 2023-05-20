@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
+import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 1.h),
+          padding: EdgeInsets.symmetric(horizontal: 1.5.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   placeholder: (context, url) => ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20.sp),
                                     child: Image.asset(
                                       'assets/images/bg.jpeg',
                                       fit: BoxFit.cover,
@@ -85,6 +86,7 @@ class HomePage extends StatelessWidget {
                                       'assets/images/bg.jpeg',
                                       fit: BoxFit.cover,
                                       width: double.infinity,
+                                      height: double.maxFinite,
                                     ),
                                   ),
                                 ),
@@ -95,8 +97,8 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding:  EdgeInsets.symmetric(
-                                      horizontal: 2.h),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.h),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment:
@@ -104,15 +106,15 @@ class HomePage extends StatelessWidget {
                                     children: [
                                       Text(
                                         article.source!.name ?? '',
-                                        style:  TextStyle(
+                                        style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 13.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                       Gap(1.h),
+                                      Gap(1.h),
                                       Text(
                                         article.title ?? '',
-                                        style:  TextStyle(
+                                        style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 13.sp,
                                             fontWeight: FontWeight.w600),
@@ -126,9 +128,9 @@ class HomePage extends StatelessWidget {
                                             timeago.format(
                                                 article.publishedAt ??
                                                     DateTime.now()),
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                               color: Colors.grey,
-                                              fontSize: 13,
+                                              fontSize: 9.sp,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -145,21 +147,56 @@ class HomePage extends StatelessWidget {
                   );
                 }
               }),
-              Gap(10.h),
+              Gap(5.h),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 30.w,
-                    height: 6.h,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(color: Colors.red),
-                    child: Text('Policies'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildInkWell('Policies', () {}),
+                      buildInkWell('Policies', () {}),
+                      buildInkWell('Policies', () {}),
+                    ],
+                  ),
+                  Gap(2.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildInkWell('Policies', () {}),
+                      buildInkWell('Policies', () {}),
+                      buildInkWell('Policies', () {}),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  InkWell buildInkWell(String title, VoidCallback press) {
+    return InkWell(
+      onTap: press,
+      borderRadius: BorderRadius.circular(8.sp),
+      child: Container(
+        width: 28.w,
+        height: 9.h,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.sp),
+            color: kPrimary.withOpacity(0.3),
+            border: Border.all(
+              color: kPrimary,
+            )),
+        child: Text(
+          title,
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12.sp,
+              color: Colors.black38),
         ),
       ),
     );
