@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(10.h),
+              Gap(8.h),
               Obx(() {
                 if (controller.isLoading.value) {
                   return Center(
@@ -155,17 +155,26 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       buildInkWell('Policies', () {}),
-                      buildInkWell('Policies', () {}),
-                      buildInkWell('Policies', () {}),
+                      buildInkWell('Sport', () {}),
+                      buildInkWell('Technology', () {}),
                     ],
                   ),
                   Gap(2.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      buildInkWell('Policies', () {}),
-                      buildInkWell('Policies', () {}),
-                      buildInkWell('Policies', () {}),
+                      buildInkWell('Programming', () {}),
+                      buildInkWell('Flutter', () {}),
+                      buildInkWell('Finance', () {}),
+                    ],
+                  ),
+                  Gap(2.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildInkWell('Religion', () {}),
+                      buildInkWell('Anime', () {}),
+                      buildInkWell('Movie', () {}),
                     ],
                   ),
                 ],
@@ -183,11 +192,11 @@ class HomePage extends StatelessWidget {
       borderRadius: BorderRadius.circular(8.sp),
       child: Container(
         width: 28.w,
-        height: 9.h,
+        height: 7.h,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.sp),
-            color: kPrimary.withOpacity(0.3),
+            color: kPrimary.withOpacity(0.2),
             border: Border.all(
               color: kPrimary,
             )),
@@ -196,7 +205,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 12.sp,
-              color: Colors.black38),
+              color: kScaffoldColor),
         ),
       ),
     );
