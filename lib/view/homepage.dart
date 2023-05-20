@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
+import 'package:sizer/sizer.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 import '../controller/hot_news_controller.dart';
@@ -20,9 +21,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0),
+          padding:  EdgeInsets.symmetric(horizontal: 1.h),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Gap(10.h),
               Obx(() {
                 if (controller.isLoading.value) {
                   return Center(
@@ -92,8 +95,8 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
+                                  padding:  EdgeInsets.symmetric(
+                                      horizontal: 2.h),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment:
@@ -101,20 +104,20 @@ class HomePage extends StatelessWidget {
                                     children: [
                                       Text(
                                         article.source!.name ?? '',
-                                        style: const TextStyle(
+                                        style:  TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 13.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                      const Gap(10),
+                                       Gap(1.h),
                                       Text(
                                         article.title ?? '',
-                                        style: const TextStyle(
+                                        style:  TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 13.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                      const Gap(10),
+                                      Gap(1.h),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
@@ -142,6 +145,19 @@ class HomePage extends StatelessWidget {
                   );
                 }
               }),
+              Gap(10.h),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 30.w,
+                    height: 6.h,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(color: Colors.red),
+                    child: Text('Policies'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

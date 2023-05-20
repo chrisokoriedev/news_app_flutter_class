@@ -8,6 +8,7 @@ import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:news_app_flutter_class/view/getStarted.dart';
 import 'package:news_app_flutter_class/view/maincontroll.dart';
 import 'package:path_provider/path_provider.dart' as path;
+import 'package:sizer/sizer.dart';
 
 var boxHive;
 
@@ -30,16 +31,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: kScaffoldColor,
-        primarySwatch: Colors.blue,
-      ),
-      home: boxHive.get('done') == true
-          ? const MainConrolScreen()
-          : const GetStartedScreen(),
+    return Sizer(
+      builder: (BuildContext context, Orientation orientation,
+          DeviceType deviceType) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            scaffoldBackgroundColor: kScaffoldColor,
+            primarySwatch: Colors.blue,
+          ),
+          home: boxHive.get('done') == true
+              ? const MainConrolScreen()
+              : const GetStartedScreen(),
+        );
+      },
     );
   }
 }
