@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
 
+import '../serivices/get_category_new.dart';
 import '../serivices/recommdation_service.dart';
 
 class HotNewsController extends GetxController {
@@ -40,7 +41,7 @@ class HotNewsController extends GetxController {
   void dataFetchFromServices() async {
     try {
       isLoading.value = true;
-      NewModel fetchedData = await GetNewCategory().getHotNews('');
+      NewModel fetchedData = await GetNewCategoryServices().getCategoryNewsApiS('');
       if (fetchedData.articles!.isNotEmpty) {
         data.value = fetchedData;
       } else {

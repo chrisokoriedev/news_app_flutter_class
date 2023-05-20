@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
+import 'package:news_app_flutter_class/serivices/get_category_new.dart';
 import 'package:news_app_flutter_class/serivices/recommdation_service.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:news_app_flutter_class/view/category_view.dart';
@@ -199,7 +200,7 @@ class HomePage extends StatelessWidget {
   InkWell buildInkWell(String title) {
     return InkWell(
       onTap: () {
-        GetNewCategory().getHotNews(title.trim());
+        GetNewCategoryServices().getCategoryNewsApiS(title.trim());
         Get.to(const CategoryView());
       },
       borderRadius: BorderRadius.circular(8.sp),
