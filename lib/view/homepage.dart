@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:news_app_flutter_class/model/remmendationmodel.dart';
+import 'package:news_app_flutter_class/serivices/recommdation_service.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:sizer/sizer.dart';
@@ -162,27 +163,27 @@ class HomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      buildInkWell('Policies', () {}),
-                      buildInkWell('Sport', () {}),
-                      buildInkWell('Technology', () {}),
+                      buildInkWell('Policies'),
+                      buildInkWell('Sport'),
+                      buildInkWell('Technology'),
                     ],
                   ),
                   Gap(2.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      buildInkWell('Programming', () {}),
-                      buildInkWell('Flutter', () {}),
-                      buildInkWell('Finance', () {}),
+                      buildInkWell('Programming'),
+                      buildInkWell('Flutter'),
+                      buildInkWell('Finance'),
                     ],
                   ),
                   Gap(2.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      buildInkWell('Religion', () {}),
-                      buildInkWell('Anime', () {}),
-                      buildInkWell('Movie', () {}),
+                      buildInkWell('Religion'),
+                      buildInkWell('Anime'),
+                      buildInkWell('Movie'),
                     ],
                   ),
                 ],
@@ -194,9 +195,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  InkWell buildInkWell(String title, VoidCallback press) {
+  InkWell buildInkWell(String title) {
     return InkWell(
-      onTap: press,
+      onTap: () => GetNewCategory().getHotNews(title.trim()),
       borderRadius: BorderRadius.circular(8.sp),
       child: Container(
         width: 28.w,
