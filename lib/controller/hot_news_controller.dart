@@ -20,7 +20,6 @@ class HotNewsController extends GetxController {
       isLoading.value = true;
       NewModel fetchedData = await NewService().getHotNews();
       if (fetchedData.articles!.isNotEmpty) {
-        Get.to(const CategoryView());
 
         data.value = fetchedData;
       } else {
@@ -50,6 +49,8 @@ class GetCategoryController extends GetxController {
           await GetNewCategoryServices().getCategoryNewsApiS('');
 
       if (fetchedData.articles!.isNotEmpty) {
+        Get.to(const CategoryView());
+
         data.value = fetchedData;
       } else {
         // Handle the case where no articles are available

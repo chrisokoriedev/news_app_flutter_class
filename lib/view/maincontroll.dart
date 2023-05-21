@@ -1,4 +1,4 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_flutter_class/view/searchpage.dart';
 import 'package:news_app_flutter_class/view/setting_screen.dart';
@@ -18,7 +18,7 @@ class _MainConrolScreenState extends State<MainConrolScreen> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return  HomePage();
+        return HomePage();
       case 1:
         return const SearchPage();
       case 2:
@@ -32,31 +32,23 @@ class _MainConrolScreenState extends State<MainConrolScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _getPage(_currentIndex),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: BottomNavyBar(
-          containerHeight: 60,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          selectedIndex: _currentIndex,
-          onItemSelected: (index) => setState(() => _currentIndex = index),
-          items: [
-            BottomNavyBarItem(
-              icon: const Icon(Icons.home),
-              title: const Text('Home'),
-              activeColor: Colors.blue,
-            ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.search),
-              title: const Text('Search'),
-              activeColor: Colors.green,
-            ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.person),
-              title: const Text('Profile'),
-              activeColor: Colors.red,
-            ),
-          ],
-        ),
+      bottomNavigationBar: FlashyTabBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: [
+          FlashyTabBarItem(
+            icon: const Icon(Icons.home),
+            title: const Text('Home'),
+          ),
+          FlashyTabBarItem(
+            icon: const Icon(Icons.search),
+            title: const Text('Search'),
+          ),
+          FlashyTabBarItem(
+            icon: const Icon(Icons.person),
+            title: const Text('Account'),
+          ),
+        ],
       ),
     );
   }

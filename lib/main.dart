@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:news_app_flutter_class/controller/hot_news_controller.dart';
 import 'package:news_app_flutter_class/utils/contants.dart';
-import 'package:news_app_flutter_class/view/getStarted.dart';
+import 'package:news_app_flutter_class/view/onboarding/getStarted.dart';
 import 'package:news_app_flutter_class/view/maincontroll.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:sizer/sizer.dart';
@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: kScaffoldColor,
             primarySwatch: Colors.blue,
+            useMaterial3: true,
           ),
           home: boxHive.get('done') == true
               ? const MainConrolScreen()

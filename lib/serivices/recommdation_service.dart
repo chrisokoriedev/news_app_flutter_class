@@ -24,6 +24,7 @@ class NewService extends GetxController {
         print('Request failed');
       }
     } catch (e) {
+      print('hey');
       Get.snackbar('status', e.toString());
     }
     return NewModel(status: '', totalResults: null, articles: []);
