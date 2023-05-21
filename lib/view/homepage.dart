@@ -69,6 +69,7 @@ class HomePage extends StatelessWidget {
                               contentText: article.description,
                               time: article.publishedAt,
                               source: article.source!.name,
+                              contentDescription: article.description,
                             ),
                           ),
                           child: Container(
