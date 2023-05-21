@@ -62,13 +62,15 @@ class HomePage extends StatelessWidget {
                         Article article =
                             controller.data.value.articles![index];
                         return InkWell(
-                          onTap: () => Get.to(DetailScreen(
-                            title: article.title,
-                            imgUrl: article.urlToImage,
-                            contentText: article.description,
-                            time: article.publishedAt,
-                            source: article.source!.name,
-                          )),
+                          onTap: () => Get.to(
+                            DetailScreen(
+                              title: article.title,
+                              imgUrl: article.urlToImage,
+                              contentText: article.description,
+                              time: article.publishedAt,
+                              source: article.source!.name,
+                            ),
+                          ),
                           child: Container(
                               alignment: Alignment.bottomLeft,
                               decoration: BoxDecoration(

@@ -5,14 +5,14 @@ import 'package:news_app_flutter_class/view/setting_screen.dart';
 
 import 'homepage.dart';
 
-class MainConrolScreen extends StatefulWidget {
-  const MainConrolScreen({Key? key}) : super(key: key);
+class MainControlScreen extends StatefulWidget {
+  const MainControlScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainConrolScreen> createState() => _MainConrolScreenState();
+  State<MainControlScreen> createState() => _MainControlScreenState();
 }
 
-class _MainConrolScreenState extends State<MainConrolScreen> {
+class _MainControlScreenState extends State<MainControlScreen> {
   int _currentIndex = 0;
 
   Widget _getPage(int index) {

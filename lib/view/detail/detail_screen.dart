@@ -55,7 +55,8 @@ class DetailScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 45.h,
               ),
-            )
+            ),
+            Gap(1.h),
           ],
         ),
       ),

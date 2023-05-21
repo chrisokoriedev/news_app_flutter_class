@@ -53,7 +53,7 @@ class GetStartedScreen extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         boxHive.put('done', true);
-                        Get.to( const MainConrolScreen());
+                        Get.to( const MainControlScreen());
                       },
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(

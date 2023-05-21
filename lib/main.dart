@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           home: boxHive.get('done') == true
-              ? const MainConrolScreen()
+              ? const MainControlScreen()
               : const GetStartedScreen(),
         );
       },
